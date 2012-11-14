@@ -83,7 +83,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="MsgManager.config">
       <SubType>Designer</SubType>
     </None>
