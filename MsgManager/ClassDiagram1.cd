@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MsgManager.V1MessageStore">
+    <Position X="5.25" Y="1" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAKAAAUAAAAAIAAAAA=</HashCode>
+      <FileName>V1MessageStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MsgManager.V1Session">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEEAEIAAAAAlCAAAIAAAAAAAAIAIECAQAACAAAAAA=</HashCode>
+      <FileName>V1Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="MsgManager.MessageStruct">
+    <Position X="2.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQCAAAAAAA=</HashCode>
+      <FileName>V1Message.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
