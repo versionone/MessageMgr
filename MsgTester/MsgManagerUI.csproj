@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
     <Reference Include="VersionOne.SDK.APIClient, Version=8.0.600.0, Culture=neutral, PublicKeyToken=e0f410c10d2e7630, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\tools\sdk\c#\VersionOne.SDK.APIClient.dll</HintPath>
+      <HintPath>..\packages\VersionOne.SDK.APIClient.12.3.80.0\lib\net40\VersionOne.SDK.APIClient.dll</HintPath>
     </Reference>
     <Reference Include="VersionOne.SDK.ObjectModel, Version=8.0.600.0, Culture=neutral, PublicKeyToken=e0f410c10d2e7630, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\tools\sdk\c#\VersionOne.SDK.ObjectModel.dll</HintPath>
+      <HintPath>..\packages\VersionOne.SDK.ObjectModel.12.3.145.0\lib\net40\VersionOne.SDK.ObjectModel.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +86,7 @@
     <None Include="MsgManager.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -215,12 +215,15 @@ namespace MsgManagerUI
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_loginObj.isV1Connected)
-            {
-                ShowLoginForms();
-                ClearLoginForm();
-                exitToolStripMenuItem.Enabled = false;
-            }
+            
+                if ((_loginObj== null) ||(_loginObj.isV1Connected))
+                {
+                    ShowLoginForms();
+                    ClearLoginForm();
+                    exitToolStripMenuItem.Enabled = false;
+                }
+            
+           
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
