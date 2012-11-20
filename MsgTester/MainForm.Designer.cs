@@ -37,8 +37,8 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelLogin = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.tbV1Path = new System.Windows.Forms.TextBox();
@@ -66,7 +66,7 @@
             // 
             this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad.Location = new System.Drawing.Point(232, 396);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(237, 55);
             this.btnLoad.TabIndex = 0;
@@ -81,7 +81,7 @@
             this.listBoxMessages.FormattingEnabled = true;
             this.listBoxMessages.ItemHeight = 25;
             this.listBoxMessages.Location = new System.Drawing.Point(16, 32);
-            this.listBoxMessages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxMessages.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxMessages.Name = "listBoxMessages";
             this.listBoxMessages.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxMessages.Size = new System.Drawing.Size(988, 329);
@@ -94,7 +94,7 @@
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(557, 396);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(237, 54);
             this.btnDelete.TabIndex = 7;
@@ -113,7 +113,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1021, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1021, 28);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -124,37 +124,37 @@
             this.exitToolStripMenuItem,
             this.exitToolStripMenuItem1});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
             this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
             this.exitToolStripMenuItem.Text = "Logout";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(125, 24);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
-            // 
-            // configurationToolStripMenuItem
-            // 
-            this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.configurationToolStripMenuItem.Text = "Save Path";
-            this.configurationToolStripMenuItem.Visible = false;
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Visible = false;
+            // 
+            // configurationToolStripMenuItem
+            // 
+            this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
+            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.configurationToolStripMenuItem.Text = "Save Path";
+            this.configurationToolStripMenuItem.Visible = false;
             // 
             // panelLogin
             // 
@@ -168,7 +168,7 @@
             this.panelLogin.Controls.Add(this.tbUserName);
             this.panelLogin.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panelLogin.Location = new System.Drawing.Point(121, 38);
-            this.panelLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogin.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(779, 351);
             this.panelLogin.TabIndex = 11;
@@ -192,7 +192,7 @@
             // 
             this.tbV1Path.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbV1Path.Location = new System.Drawing.Point(251, 36);
-            this.tbV1Path.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbV1Path.Margin = new System.Windows.Forms.Padding(4);
             this.tbV1Path.Name = "tbV1Path";
             this.tbV1Path.Size = new System.Drawing.Size(507, 34);
             this.tbV1Path.TabIndex = 1;
@@ -201,7 +201,7 @@
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Location = new System.Drawing.Point(327, 294);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(145, 39);
             this.btnLogin.TabIndex = 4;
@@ -213,7 +213,7 @@
             // 
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.Location = new System.Drawing.Point(251, 209);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.MaxLength = 20;
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
@@ -249,7 +249,7 @@
             // 
             this.tbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUserName.Location = new System.Drawing.Point(251, 123);
-            this.tbUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUserName.Margin = new System.Windows.Forms.Padding(4);
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(301, 34);
             this.tbUserName.TabIndex = 2;
@@ -258,6 +258,7 @@
             // v1MessageStoreBindingSource
             // 
             this.v1MessageStoreBindingSource.DataSource = typeof(MsgManager.V1MessageStore);
+            this.v1MessageStoreBindingSource.CurrentChanged += new System.EventHandler(this.v1MessageStoreBindingSource_CurrentChanged);
             // 
             // v1MessageStoreBindingSource1
             // 
@@ -348,7 +349,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMsgMgr";
             this.Text = "Message Manager";
             this.Load += new System.EventHandler(this.FormMsgMgr_Load);

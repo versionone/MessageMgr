@@ -137,12 +137,15 @@ namespace MsgManagerUI
             // get out of sync
             if (answer == DialogResult.Yes)
             {
+                int markedForDelCtr = Convert.ToInt32(listBoxMessages.SelectedItems.Count.ToString())-1;
                 Task T = new Task(() =>
                                       {
                                           foreach (int index in listBoxMessages.SelectedIndices)
                                           {
                                               Session.V1S.messageStore.DeleteSingleMessage(
                                                   Session.V1S.messageStore._messageContainer.ElementAt(index));
+                                              lblMark4Del.Text = (markedForDelCtr--).ToString();
+                                              lblMark4Del.Refresh();
                                           }
 
                                           //Save the number of things that I deleted to dump in the status bar
@@ -263,6 +266,11 @@ namespace MsgManagerUI
         {
    //         tbV1Path.Text = _v1Path;
 //            tbV1Path.Refresh();
+        }
+
+        private void v1MessageStoreBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
