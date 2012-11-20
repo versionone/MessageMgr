@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using MsgManager;
 using OmMessage = VersionOne.SDK.ObjectModel.Message;
@@ -136,27 +137,33 @@ namespace MsgManagerUI
             // get out of sync
             if (answer == DialogResult.Yes)
             {
-                foreach (int index in listBoxMessages.SelectedIndices)
-                {
-                    Session.V1S.messageStore.DeleteSingleMessage(
-                        Session.V1S.messageStore._messageContainer.ElementAt(index));
-                }
+                Task T = new Task(() =>
+                                      {
+                                          foreach (int index in listBoxMessages.SelectedIndices)
+                                          {
+                                              Session.V1S.messageStore.DeleteSingleMessage(
+                                                  Session.V1S.messageStore._messageContainer.ElementAt(index));
+                                          }
 
-                //Save the number of things that I deleted to dump in the status bar
-                //Will Clear this as soon as 
-                string lastStatus = "Deleted " + lblMark4Del.Text + " Messages";
-                UpdateStatusBar(lastStatus);
+                                          //Save the number of things that I deleted to dump in the status bar
+                                          //Will Clear this as soon as 
+                                          string lastStatus = "Deleted " + lblMark4Del.Text + " Messages";
+                                          UpdateStatusBar(lastStatus);
 
-                //Clear and Re-Get the new list items
-                listBoxMessages.Items.Clear();
-                Session.V1S.messageStore.QueryMessages();
-                foreach (OmMessage m in Session.V1S.messageStore._messageContainer)
-                {
-                    listBoxMessages.Items.Add(m.Name);
-                }
-                UpdateGuiMessageCount();
-                SetGuiDelMessageCount();
+                                          //Clear and Re-Get the new list items
+                                          listBoxMessages.Items.Clear();
+                                          Session.V1S.messageStore.QueryMessages();
+                                          foreach (OmMessage m in Session.V1S.messageStore._messageContainer)
+                                          {
+                                              listBoxMessages.Items.Add(m.Name);
+                                          }
+                                          UpdateGuiMessageCount();
+                                          SetGuiDelMessageCount();
+                                      });
+                
+               T.Start(TaskScheduler.FromCurrentSynchronizationContext());
             }
+         
             else
             {
                 UpdateStatusBar("Delete Cancelled");
