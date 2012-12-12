@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual Studio 2010 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgManager", "MsgManager\MsgManager.csproj", "{544970A2-F586-4102-A33D-652E97578F0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgManagerUI", "MsgTester\MsgManagerUI.csproj", "{D3597486-E4F9-4DC7-A1E9-281A75474B88}"
