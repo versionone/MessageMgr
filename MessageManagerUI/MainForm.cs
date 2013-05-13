@@ -21,8 +21,13 @@ namespace MsgManagerUI
         {
             //Dont need to clear anymore.  whenver login form is shown, we call this line.
             //listBoxMessages.Items.Clear();
-            LoadMsgIntoGui();
-            UpdateGuiMessageCount();
+            //This prevents loading the same messages in to our storage when user clicks button again and again.
+            //TODO what if we remove this canLoadMessages and check this value when button is clicked???  Cleaner?
+            {
+                LoadMsgIntoGui();
+                UpdateGuiMessageCount();
+
+            }
         }
 
         private void SetGuiDelMessageCount()
@@ -87,14 +92,22 @@ namespace MsgManagerUI
 
         private void LoadMsgIntoGui()
         {
-//The session holds this big ass storage holding all this users messages
-            Session.V1S.messageStore = new V1MessageStore(Session.V1S.V1Inst);
-
-            //Load em up!!!
-            Session.V1S.messageStore.QueryMessages();
-            foreach (OmMessage m in Session.V1S.messageStore._messageContainer)
+            try
             {
-                listBoxMessages.Items.Add(m.Name);
+                //The session holds this big ass storage holding all this users messages
+                Session.V1S.messageStore = new V1MessageStore(Session.V1S.V1Inst);
+
+                //Load em up!!!
+                Session.V1S.messageStore.QueryMessages();
+                foreach (OmMessage m in Session.V1S.messageStore._messageContainer)
+                {
+                    listBoxMessages.Items.Add(m.Name);
+                }
+                this.btnLoad.Enabled = false;
+            }
+            catch(Exception e)
+            {
+                DialogResult dialogResult = MessageBox.Show("Problem with trying to Read Messages from VersionOne. Error= "+ e);
             }
         }
 
@@ -165,6 +178,7 @@ namespace MsgManagerUI
                                       });
                 
                T.Start(TaskScheduler.FromCurrentSynchronizationContext());
+                //After successfully deleting stuff, we will allow a reload
             }
          
             else
@@ -229,6 +243,7 @@ namespace MsgManagerUI
                 {
                     ShowLoginForms();
                     ClearLoginForm();
+                    this.btnLoad.Enabled = true; 
                     exitToolStripMenuItem.Enabled = false;
                 }
             
