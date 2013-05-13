@@ -3,10 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgManager", "MsgManager\MsgManager.csproj", "{544970A2-F586-4102-A33D-652E97578F0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgManagerUI", "MsgTester\MsgManagerUI.csproj", "{D3597486-E4F9-4DC7-A1E9-281A75474B88}"
-	ProjectSection(ProjectDependencies) = postProject
-		{544970A2-F586-4102-A33D-652E97578F0D} = {544970A2-F586-4102-A33D-652E97578F0D}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgManagerUI", "MessageManagerUI\MsgManagerUI.csproj", "{D3597486-E4F9-4DC7-A1E9-281A75474B88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +30,8 @@ Global
 		{D3597486-E4F9-4DC7-A1E9-281A75474B88}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{D3597486-E4F9-4DC7-A1E9-281A75474B88}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{D3597486-E4F9-4DC7-A1E9-281A75474B88}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{D3597486-E4F9-4DC7-A1E9-281A75474B88}.Debug|x86.ActiveCfg = Release|x86
-		{D3597486-E4F9-4DC7-A1E9-281A75474B88}.Debug|x86.Build.0 = Release|x86
+		{D3597486-E4F9-4DC7-A1E9-281A75474B88}.Debug|x86.ActiveCfg = Debug|x86
+		{D3597486-E4F9-4DC7-A1E9-281A75474B88}.Debug|x86.Build.0 = Debug|x86
 		{D3597486-E4F9-4DC7-A1E9-281A75474B88}.Release|Any CPU.ActiveCfg = Release|x86
 		{D3597486-E4F9-4DC7-A1E9-281A75474B88}.Release|Mixed Platforms.ActiveCfg = Release|x86
 		{D3597486-E4F9-4DC7-A1E9-281A75474B88}.Release|Mixed Platforms.Build.0 = Release|x86
