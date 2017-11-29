@@ -1,19 +1,26 @@
 ﻿using System;
-using System.Windows.Forms;
-using VersionOne.SDK.ObjectModel;
+//using System.Windows.Forms;
+using VersionOne.SDK.APIClient;
 
 namespace MsgManager
 {
     public class V1Session
     {
         private string _Password;
+        private string _accessToken;
         private string _UserName;
         private string _v1URL;
         private bool isLoggedIn=false;
         public V1MessageStore messageStore;
-        public V1Instance V1Inst { get; set; }
+        //public V1Instance V1Inst { get; set; }
+		public V1Connector V1Inst {get; set;}
 
-        public string UserName
+		public string accessToken
+		{
+			get { return _accessToken; }
+			set { _accessToken = value; }
+		}
+		public string UserName
         {
             get { return _UserName; }
             set { _UserName = value; }
@@ -28,7 +35,7 @@ namespace MsgManager
         public string Member { get; set; }
 
 
-        public string V1Path
+        public string v1Url
         {
             get { return _v1URL; }
             set { _v1URL = value; }
@@ -36,7 +43,7 @@ namespace MsgManager
 
         public void SetServerPath(string v1Server)
         {
-            V1Path = v1Server;
+            v1Url = v1Server;
         }
 
         public Boolean LoginToV1()
@@ -49,10 +56,16 @@ namespace MsgManager
             isLoggedIn = true;
             try
             {
-                V1Inst = new V1Instance(_v1URL, _UserName, _Password);
-                V1Inst.Validate();
+				// if  V1Inst = new V1Instance(_v1URL, _UserName, _Password);
+				//V1Inst.Validate();
+				//V1Inst =  V1Connector(_v1URL)
+				 V1Inst = V1Connector
+					.WithInstanceUrl(_v1URL)
+					.WithUserAgentHeader("MessageMgr","1.1")
+					.WithAccessToken(_accessToken)
+					.Build();
             }
-            catch (AuthenticationException e)
+            catch (ArgumentNullException e)
             {
                 isLoggedIn = false;
             }

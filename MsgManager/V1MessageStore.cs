@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using VersionOne.SDK.ObjectModel;
-using VersionOne.SDK.ObjectModel.Filters;
 using VersionOne.SDK.APIClient;
 
 namespace MsgManager
@@ -23,7 +21,7 @@ namespace MsgManager
             get { return _messageContainer; }
         }
        
-        public V1MessageStore(V1Instance v1In)
+        public V1MessageStore(V1Connector v1In)
         {
             try
             {
