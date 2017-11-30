@@ -13,9 +13,10 @@ namespace UnitTest_V1Session
 		{
 			//Create a V1Session
 			V1Session session = new V1Session();
+			session.v1Url = "http://www11.v1host.com/VersionOnemi";
 			session.accessToken = "asdf";
 			var result = session.LoginToV1();
-			Assert.IsTrue( result);	
+			Assert.IsFalse( result);	
 
 			
 		}

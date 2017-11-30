@@ -9,7 +9,7 @@ namespace MsgManager
         private string _Password;
         private string _accessToken;
         private string _UserName;
-        private string _v1URL;
+        private string _v1Url;
         private bool isLoggedIn=false;
         public V1MessageStore messageStore;
         //public V1Instance V1Inst { get; set; }
@@ -37,8 +37,8 @@ namespace MsgManager
 
         public string v1Url
         {
-            get { return _v1URL; }
-            set { _v1URL = value; }
+            get { return _v1Url; }
+            set { _v1Url = value; }
         }
 
         public void SetServerPath(string v1Server)
@@ -60,9 +60,9 @@ namespace MsgManager
 				//V1Inst.Validate();
 				//V1Inst =  V1Connector(_v1URL)
 				 V1Inst = V1Connector
-					.WithInstanceUrl(_v1URL)
+					.WithInstanceUrl(v1Url)
 					.WithUserAgentHeader("MessageMgr","1.1")
-					.WithAccessToken(_accessToken)
+					.WithAccessToken(accessToken)
 					.Build();
             }
             catch (ArgumentNullException e)
