@@ -13,7 +13,7 @@ namespace UnitTest_Session
 		string tokenPass = "1.tmw39jJHozYGcOuH++q/E0xwyC8=";
 
 		[TestMethod]
-		public void test_LoginToV1F()
+		public void loginFail()
 		{
 			V1Session session = new V1Session();
 			session.myV1Server = new LcInstance(tokenFail,url);
@@ -22,7 +22,7 @@ namespace UnitTest_Session
 			 Assert.IsFalse(result);
 		}
 		[TestMethod]
-		public void test_LoginToV1P()
+		public void loginPass()
 		{
 			V1Session session = new V1Session();
 			session.myV1Server = new LcInstance(tokenPass, url);
@@ -31,7 +31,7 @@ namespace UnitTest_Session
 			Assert.IsTrue(result);
 		}
 		[TestMethod]
-		public void test_Query()
+		public void queryMessages()
 		{
 			V1Session session = new V1Session();
 			session.myV1Server = new LcInstance(tokenPass, url);
