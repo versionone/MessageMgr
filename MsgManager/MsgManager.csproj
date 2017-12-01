@@ -57,6 +57,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Member.cs" />
+    <Compile Include="..\Message.cs">
+      <Link>Message.cs</Link>
+    </Compile>
     <Compile Include="StaticTools.cs" />
     <Compile Include="V1MessageStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

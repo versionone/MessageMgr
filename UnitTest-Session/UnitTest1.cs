@@ -1,5 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MsgManager;
+﻿using System;
+using System.Collections.Generic;
+using MessageManClean;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTest_Session
 {
@@ -13,18 +15,30 @@ namespace UnitTest_Session
 		[TestMethod]
 		public void test_LoginToV1F()
 		{
-			V1Session session = new V1Session(url, tokenFail);
-			var result = session.LoginToV1();
+			V1Session session = new V1Session();
+			session.myV1Server = new LcInstance(tokenFail,url);
+			var result = session.myV1Server.login();
 			System.Console.WriteLine(result);
 			 Assert.IsFalse(result);
 		}
 		[TestMethod]
 		public void test_LoginToV1P()
 		{
-			V1Session session = new V1Session(url, tokenPass);
-			var result = session.LoginToV1();
+			V1Session session = new V1Session();
+			session.myV1Server = new LcInstance(tokenPass, url);
+			var result = session.myV1Server.login();
 			System.Console.WriteLine(result);
-				Assert.IsTrue(result);
+			Assert.IsTrue(result);
+		}
+		[TestMethod]
+		public void test_Query()
+		{
+			V1Session session = new V1Session();
+			session.myV1Server = new LcInstance(tokenPass, url);
+			var result = session.myV1Server.login();
+			System.Console.WriteLine(result);
+			List<Message> dump = session.myV1Server.QueryMessages();
+			Assert.IsTrue(result);
 		}
 	}
 }

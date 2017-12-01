@@ -1,26 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using VersionOne.SDK.APIClient;
 
-namespace MsgManager
+namespace MessageManClean
 {
 	public class Message
 	{
-		private Oid _message;
-		public Oid message
-		{
-			get { return _message; }
-			set { _message = value; }
-		}
-		private string _messageName;
-		public string messageName
-		{
-			get { return _messageName; }
-			set { _messageName = value; }
-		}
+		public Oid messageOid { get; set; }
 
+		public string messageName { get; set; }
+
+		public Message(Oid oid,string msg)
+		{
+			this.messageOid = oid;
+			this.messageName = msg;
+		}
 	}
     public class V1MessageStore
     {
@@ -50,12 +44,12 @@ namespace MsgManager
             get { return _messageContainer; }
         }
        
-        public V1MessageStore(V1Connector v1In, string userNameIn)
+        public V1MessageStore(LcInstance v1In, string userNameIn)
         {
 
             try
             {
-                v1Instance = v1In;
+                //v1Instance = v1In;
 				userName = userNameIn;
 				
  //               messageFilter = new MessageFilter();
@@ -68,30 +62,7 @@ namespace MsgManager
         }
        
         //Load up the store
-        public void QueryMessages()
-        {
-			//   _messageContainer = _v1In.Get.Messages(messageFilter);
 
-			IServices services = new Services(v1Instance);
-			IAssetType storyType = services.Meta.GetAssetType("MessageReceipt");
-			Query query = new Query(storyType);
-
-			IAttributeDefinition nameAttribute = storyType.GetAttributeDefinition("ID");
-			IAttributeDefinition estimateAttribute = storyType.GetAttributeDefinition("Message.Name");
-			query.Selection.Add(nameAttribute);
-			query.Selection.Add(estimateAttribute);
-			QueryResult result = services.Retrieve(query);
-
-			foreach (Asset story in result.Assets)
-			{
-				Console.WriteLine(story.Oid.Token);
-				Console.WriteLine(story.GetAttribute(nameAttribute).Value);
-				Console.WriteLine(story.GetAttribute(estimateAttribute).Value);
-				Console.WriteLine();
-			}
-
-
-		}
 
         //This returns a copy of the message List to be used by gui or console output
         //TODO this should Be a simple getter!!!!!!
