@@ -38,7 +38,7 @@ namespace UnitTest_Session
 			var result = session.myV1Server.login();
 			System.Console.WriteLine(result);
 			List<Message> dump = session.myV1Server.QueryMessages();
-			Assert.IsTrue(result);
+			Assert.IsTrue((dump.Count > 2000) );
 		}
 	}
 }
