@@ -45,35 +45,57 @@ namespace MsgManager
         {
             v1Url = v1Server;
         }
-
-        public Boolean LoginToV1()
+		public V1Session(string v1UrlIn, string accessTokenIn)
+		{
+			v1Url = v1UrlIn;
+			accessToken = accessTokenIn;
+		}
+		public Boolean LoginToV1()
         {
             //We will assume that this is true until an exception is thrown to make it false
             // I did it this way because during debug, I could not determine what values in the V1Inst
             //That I could use to determine if there was a successful login occurred.  The V1Inst is NOT null when 
             //it fails and according to the debugger, I cannot access certain threads after the exception has been thrown.
 
-            isLoggedIn = true;
+            isLoggedIn = false;
+			IServices services=null;
+
             try
             {
 				// if  V1Inst = new V1Instance(_v1URL, _UserName, _Password);
 				//V1Inst.Validate();
 				//V1Inst =  V1Connector(_v1URL)
+				
 				 V1Inst = V1Connector
 					.WithInstanceUrl(v1Url)
 					.WithUserAgentHeader("MessageMgr","1.1")
 					.WithAccessToken(accessToken)
 					.Build();
-            }
+					services = new Services(V1Inst);
+			}
             catch (ArgumentNullException e)
             {
                 isLoggedIn = false;
             }
-            catch(Exception)
+            catch(Exception e)
             {
                 isLoggedIn = false;
             }
-            return isLoggedIn;
+			try
+			{
+				if (services.LoggedIn != null)
+				{
+					System.Console.WriteLine("shit");
+					System.Console.WriteLine(services.LoggedIn);
+
+					isLoggedIn = true;
+				}
+			}
+			catch (Exception e)
+			{
+				isLoggedIn = false;
+			}
+			return isLoggedIn;
         }
 
         public void LogOutOfV1()
