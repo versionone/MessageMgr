@@ -44,13 +44,13 @@ namespace MessageManClean
             get { return _messageContainer; }
         }
        
-        public V1MessageStore(LcInstance v1In, string userNameIn)
+        public V1MessageStore()
         {
 
             try
             {
                 //v1Instance = v1In;
-				userName = userNameIn;
+			//	userName = userNameIn;
 				
  //               messageFilter = new MessageFilter();
 //                messageFilter.Recipient.Add(_v1In.LoggedInMember);
@@ -71,16 +71,21 @@ namespace MessageManClean
             return (ICollection<Message>) _messageContainer;
         }
 
-        public void DeleteSingleMessage(Message msg)
+        public void DeleteSingleMessage(Message msg,IServices serviceIn)
         {
-            try
-            {
-//                msg.DeleteReceipt();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Problem Attempting to delete a message "+ msg.messageName + " OID="+ msg + " " + e.Message);
-            }
+	        IOperation deleteOperation = serviceIn.Meta.GetOperation("MessageReceipt.Delete");
+	        Oid deletedMr = serviceIn.ExecuteOperation(deleteOperation, msg.messageOid);
+	        try
+	        {
+		        Query query = new Query(deletedMr.Momentless);
+		        serviceIn.Retrieve(query);
+	        }
+		    catch (Exception e)
+	        {
+                //Console.WriteLine("Problem Attempting to delete a message "+ msg.messageName + " OID="+ msg + " " + e.Message);
+		        Console.WriteLine("Error trying to delete MessageReceipt: " + msg.messageOid.Token);
+
+	        }
         }
 
         public void DeleteAllMessages()
