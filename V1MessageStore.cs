@@ -71,21 +71,20 @@ namespace MessageManClean
             return (ICollection<Message>) _messageContainer;
         }
 
-        public void DeleteSingleMessage(Message msg,IServices serviceIn)
+        public Oid DeleteSingleMessage(Message msg,IServices serviceIn)
         {
-	        IOperation deleteOperation = serviceIn.Meta.GetOperation("MessageReceipt.Delete");
-	        Oid deletedMr = serviceIn.ExecuteOperation(deleteOperation, msg.messageOid);
-	        try
-	        {
-		        Query query = new Query(deletedMr.Momentless);
-		        serviceIn.Retrieve(query);
-	        }
-		    catch (Exception e)
-	        {
-                //Console.WriteLine("Problem Attempting to delete a message "+ msg.messageName + " OID="+ msg + " " + e.Message);
-		        Console.WriteLine("Error trying to delete MessageReceipt: " + msg.messageOid.Token);
+	        Oid deletedMr = null;
+			try
+			{
+				IOperation deleteOperation = serviceIn.Meta.GetOperation("MessageReceipt.Delete");
+				deletedMr = serviceIn.ExecuteOperation(deleteOperation, msg.messageOid);
+			}
+			catch (Exception e)
+			{
 
-	        }
+				throw;
+			}
+	        return deletedMr;
         }
 
         public void DeleteAllMessages()
